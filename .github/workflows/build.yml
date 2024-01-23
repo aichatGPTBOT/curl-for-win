@@ -20,7 +20,6 @@ env:
   CW_MAP: '1'
   CW_JOBS: '3'
   DO_NOT_TRACK: '1'
-  DOCKER_CONTENT_TRUST: '1'
 
 jobs:
   reuse-check:
