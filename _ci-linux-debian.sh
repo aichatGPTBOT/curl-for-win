@@ -98,16 +98,16 @@ elif [[ "${CW_CONFIG:-}" = *'linux'* ]]; then
   fi
 fi
 
-apt-get --quiet 2 --option Dpkg::Use-Pty=0 update
+apt-get update
 # shellcheck disable=SC2086
-apt-get --quiet 2 --option Dpkg::Use-Pty=0 install \
+apt-get install \
   curl git gpg gpg-agent rsync python3-pefile make cmake \
   autoconf automake autopoint libtool \
   zip time jq secure-delete ${extra}
 
 if [ -n "${dl}" ]; then
   # shellcheck disable=SC2086
-  apt-get --quiet 2 --option Dpkg::Use-Pty=0 download ${dl}
+  apt-get download ${dl}
   # https://deb.debian.org/debian/pool/main/l/llvm-toolchain-17/libclang-rt-17-dev_17.0.5-1_arm64.deb -> libclang-rt-17-dev_1%3a17.0.5-1_arm64.deb
   # libclang-common-15-dev_1%3a15.0.6-4+b1_amd64.deb
   for f in ./*.deb; do
